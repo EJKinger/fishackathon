@@ -1,10 +1,40 @@
 <ion-view view-title="Home">
+  <div class="cameraIcon fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="fa fa-camera"></i>
+    </a>
+    <ul>
+      <li ng-click="capture(true)"><a class="btn-floating blue"><i class="ion-images"></i></a></li>
+      <li ng-click="capture()"><a class="btn-floating green"><i class="fa fa-camera"></i></a></li>
+    </ul>
+  </div>
+
   <ion-content>
-    <h1>Home</h1>
-    <div class="camera-buttons">
-      <button class="button big icon ion-images button-assertive" ng-click="capture(true)"></button>
-      <button class="button icon fa fa-camera button-assertive" ng-click="capture()"></button>
+    <div ng-show="image">
+      <div class="list card">
+        <div class="item item-body">
+          <img class="full-image" id="myImage">
+
+          <select ng-model="selection" class="browser-default dropdown">
+            <option value="" selected disabled>Labled as:</option>
+            <option value="1">Tuna</option>
+            <option value="2">Tilapia</option>
+            <option value="3">Red Snapper</option>
+          </select>
+
+          <div ng-show="selection && !analyzing" class="center padded-top">
+            <a class="button icon-right ion-chevron-right button-balanced" ng-click="analyzeImage()">Go</a>
+          </div>
+          <div class="center padded-top" ng-show="analyzing">
+            <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+            <br>
+            <span>Analyzing...</span>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <img id="myImage">
+
+
   </ion-content>
 </ion-view>

@@ -41,7 +41,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('HomeCtrl', function($scope){
+.controller('HomeCtrl', function($scope, Image, $state){
+
+  $scope.image = false;
+  $scope.analyzing = false;
+  $scope.selection = '';
   
   $scope.capture = function(gallery){
     if (gallery){
@@ -54,19 +58,56 @@ angular.module('starter.controllers', [])
     }
   };
 
+  $scope.analyzeImage = function(){
+    $scope.analyzing = true;
+    setTimeout(function(){
+      $state.go('app.captured');
+    }, 2000);
+  };
+
   function cameraSuccess (imageData) {
-    console.log('cameraSuccess');
+    Image.set(imageData);
+    $scope.image = true;
     var image = document.getElementById('myImage');
-    image.src = "data:image/jpeg;base64," + imageData;
+    image.src = Image.get();
+    $scope.$apply();
   }
 
   function cameraError (err) {
     console.log('Camera Error: ', err);
-    alert ('Camera Error: ' + err);
   }
 
 })
 
-.controller('CaptureCtrl', function($scope) {
-  
+.controller('CapturedCtrl', function($scope, Image) {
+  // var image = document.getElementById('myImage');
+  // image.src = Image.get();
+
+  setTimeout(function(){
+    $scope.loading = false;
+    $scope.$apply();
+  }, 2000);
+
+})
+
+.controller('ReportCtrl', function($scope){
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,18 @@
 /* Empty. Add your own CSS if you like */
-.camera-buttons {
+.cameraIcon {
+  bottom: 45px;
+  right: 24px;
+}
+
+.center {
   text-align: center;
+}
+
+.padded-top {
+  margin-top: 20px;
+}
+
+.dropdown {
+  width: 200px;
+  margin: 0 auto;
 }
