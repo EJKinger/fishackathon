@@ -16,3 +16,30 @@
   width: 200px;
   margin: 0 auto;
 }
+
+.homeContent {
+  background-color: #00B0F0;
+}
+
+.homeImg {  
+  background-image: url("../img/logo-large.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#tinyLogo {
+  padding-top: 5px;
+  max-height: 90%;
+}
+
+.reportButton {
+  padding-bottom: 15px;
+}
+
+.compareBtn {
+  background-color: #00B0F0;
+}
+
+.compareBtn:hover {
+   background-color: #00B0F0; 
+}

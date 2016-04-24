@@ -1,22 +1,25 @@
-<ion-view view-title="Home">
+<ion-view>
+  <ion-nav-title>
+    <img id="tinyLogo" src="img/logo-small.png">
+  </ion-nav-title>
   <div class="cameraIcon fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
       <i class="fa fa-camera"></i>
     </a>
     <ul>
-      <li ng-click="capture(true)"><a class="btn-floating blue"><i class="ion-images"></i></a></li>
+      <li ng-click="capture(true)"><a class="btn-floating purple"><i class="ion-images"></i></a></li>
       <li ng-click="capture()"><a class="btn-floating green"><i class="fa fa-camera"></i></a></li>
     </ul>
   </div>
 
-  <ion-content>
+  <ion-content class="homeContent homeImg">
     <div ng-show="image">
       <div class="list card">
         <div class="item item-body">
           <img class="full-image" id="myImage">
 
           <select ng-model="selection" class="browser-default dropdown">
-            <option value="" selected disabled>Labled as:</option>
+            <option value="" selected disabled>Labeled as:</option>
             <option value="1">Tuna</option>
             <option value="2">Tilapia</option>
             <option value="3">Red Snapper</option>

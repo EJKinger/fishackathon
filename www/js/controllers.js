@@ -62,6 +62,9 @@ angular.module('starter.controllers', [])
     $scope.analyzing = true;
     setTimeout(function(){
       $state.go('app.captured');
+        $scope.image = false;
+        $scope.analyzing = false;
+        $scope.selection = '';
     }, 2000);
   };
 
@@ -80,18 +83,31 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CapturedCtrl', function($scope, Image) {
-  // var image = document.getElementById('myImage');
-  // image.src = Image.get();
-
-  setTimeout(function(){
-    $scope.loading = false;
-    $scope.$apply();
-  }, 2000);
+  document.getElementById('processedImage').src = Image.get();
+  var images = [{title: "Tilapia", img: './img/tilapia-info.jpeg'}, 
+                {title: "Red Snapper", img: './img/redsnapper-info.jpeg'}];
+  $scope.current = images[0];
+  var bool = false;
+  $scope.toggle = function(){
+    if (bool){
+      $scope.current = images[0];
+    } else {
+      $scope.current = images[1];
+    }
+    bool = !bool;
+  };
 
 })
 
-.controller('ReportCtrl', function($scope){
+.controller('ReportCtrl', function($scope, $state){
+  $scope.sent = false;
 
+  $scope.sendReport = function(){
+    $scope.sent = true;
+    setTimeout(function(){
+      $state.go('app.home', {}, {reload: true});
+    }, 1000);
+  };
 });
 
 

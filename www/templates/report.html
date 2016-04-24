@@ -1,28 +1,37 @@
-<ion-view view-title="Report">
-  <ion-content>
-    <div class="list">
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Fillet labeled as:</span>
-        <input type="text" placeholder="Red Snapper">
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Fillet was actually:</span>
-        <input type="text" placeholder="Tilapia">
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Store</span>
-        <input type="text" placeholder="El Pescado Loco">
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Location</span>
-        <input type="text" placeholder="123 S. Main St. Atlanta, GA">
-      </label>
-    </div>
-
-    <div class="center">
-      <button class="button button-assertive">
-        Send Report
-      </button>
+<ion-view>
+  <ion-nav-title>
+    <img id="tinyLogo" src="img/logo-small.png">
+  </ion-nav-title>
+  <ion-content class="homeContent">
+    <div class="list card">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Fillet labeled as:</span>
+          <input type="text" placeholder="Red Snapper">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Fillet was actually:</span>
+          <input type="text" placeholder="Tilapia">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Store</span>
+          <input type="text" placeholder="El Pescado Loco">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Location</span>
+          <input type="text" placeholder="123 S. Main St. Atlanta, GA">
+        </label>
+      </div>
+      <div ng-show="!sent" class="center reportButton">
+        <button ng-click="sendReport()" class="button button-assertive">
+          Send Report
+        </button>
+      </div>
+      <div class="center padded-top reportButton" ng-show="sent">
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+        <br>
+        <span>Sending...</span>
+      </div>
     </div>
   </ion-content>
 </ion-view>
